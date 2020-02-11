@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./css/main.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1 class="header">Pomodoro</h1>
+      <div class="session">
+        <div class="controller">
+          <label>Session Length</label>
+          <div class="view">
+            <button id="decrement_session_length">-</button>
+            <span id="session">25</span>
+            <button id="increment_session_length">+</button>
+          </div>
+        </div>
+        <div class="controller">
+          <label>Break Length</label>
+          <div class="view">
+            <button id="decrement_break_length">-</button>
+            <span id="break">05</span>
+            <button id="increment_break_length">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="settings">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+      </div>
+      <div class="clock">
+        <span id="title">Session</span>
+        <span id="clock">25:00</span>
+      </div>
+      <div class="settings">
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
