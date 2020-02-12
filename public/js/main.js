@@ -18,7 +18,7 @@ function increment(e) {
   clock.innerHTML = `${Number(Session.innerHTML) + 1}:00`;
 
   if (e.srcElement.id == "increment_session_length") {
-    if (Number(Session.innerHTML) > 9) {
+    if (Number(Session.innerHTML) >= 9) {
       Session.innerHTML = (Number(Session.innerHTML) || 0) + 1;
     } else {
       Session.innerHTML = `0${(Number(Session.innerHTML) || 0) + 1}`;
@@ -37,7 +37,7 @@ function decrement(e) {
     e.srcElement.id == "decrement_session_length" &&
     Number(Session.innerHTML) > 1
   ) {
-    if (Number(Session.innerHTML) > 9) {
+    if (Number(Session.innerHTML) > 10) {
       Session.innerHTML = (Number(Session.innerHTML) || 0) - 1;
     } else {
       Session.innerHTML = `0${(Number(Session.innerHTML) || 0) - 1}`;
@@ -46,7 +46,7 @@ function decrement(e) {
     e.srcElement.id != "decrement_session_length" &&
     Number(Break.innerHTML) != 1
   ) {
-    if (Number(Break.innerHTML) >= 9) {
+    if (Number(Break.innerHTML) > 10) {
       Break.innerHTML = (Number(Break.innerHTML) || 0) - 1;
     } else {
       Break.innerHTML = `0${(Number(Break.innerHTML) || 0) - 1}`;
@@ -105,11 +105,15 @@ function breakTime() {
         clearInterval(breakTimer);
         startTimer();
       } else if (seconds == 0) {
-        clock.innerHTML = `${placholder - 1}:${seconds}`;
+        clock.innerHTML = `${placholder - 1}:0${seconds}`;
         placholder -= 1;
         seconds = 59;
       } else if (Break.innerHTML > 0) {
-        clock.innerHTML = `${placholder}:${seconds}`;
+        // clock.innerHTML = `${placholder}:${seconds}`;
+        clock.innerHTML =
+          seconds > 9
+            ? `${placholder}:${seconds}`
+            : `${placholder}:0${seconds}`;
         seconds -= 1;
       }
     }
