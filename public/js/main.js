@@ -68,6 +68,7 @@ function startTimer() {
   let seconds = 59;
   let placholder = Number(Session.innerHTML) - 1;
   Timer = setInterval(() => {
+    this.disabled = true;
     if (!isPaused) {
       if (
         clock.innerHTML.slice(0, clock.innerHTML.indexOf(":")) == 0 &&
@@ -91,22 +92,47 @@ function startTimer() {
       }
     }
   }, 900);
-  function breakTime() {
-    clearInterval(myvar);
-  }
+}
+let breakTimer;
+function breakTime() {
+  clearInterval(Timer);
+  let placholder = Number(Break.innerHTML) - 1;
+  title.innerHTML = "Break";
+  seconds = 59;
+  breakTimer = setInterval(() => {
+    if (!isPaused) {
+      if (placholder == 0 && seconds == 0) {
+        clearInterval(breakTimer);
+        startTimer();
+      } else if (seconds == 0) {
+        clock.innerHTML = `${placholder - 1}:${seconds}`;
+        placholder -= 1;
+        seconds = 59;
+      } else if (Break.innerHTML > 0) {
+        clock.innerHTML = `${placholder}:${seconds}`;
+        seconds -= 1;
+      }
+    }
+  }, 1000);
 }
 
 function pauseTimer() {
   isPaused = !isPaused;
+  isPaused ? (pause.innerHTML = "Play") : (pause.innerHTML = "Pause");
   console.log(isPaused);
 }
 function stopTimer() {
+  start.disabled = false;
   clearInterval(Timer);
+  clearInterval(breakTimer);
   clock.innerHTML = `${Session.innerHTML}:00`;
 }
 function resetTimer() {
+  clearInterval(Timer);
+  clearInterval(breakTimer);
+  start.disabled = false;
   Session.innerHTML = 25;
-  Break.innerHTML = 05;
+  Break.innerHTML = "05";
   clock.innerHTML = `${Session.innerHTML}:00`;
 }
 
