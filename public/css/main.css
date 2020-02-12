@@ -16,7 +16,7 @@ body {
           align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: powderblue;
+  background-color: darkgray;
 }
 
 .main {
@@ -34,11 +34,9 @@ body {
           flex-direction: column;
   width: 275px;
   height: 500px;
-  border: 2px solid grey;
-  -webkit-box-shadow: 10px 10px 5px #aaaaaa;
-          box-shadow: 10px 10px 5px #aaaaaa;
+  border: 2px solid #000;
   border-radius: 12px;
-  background-color: #307c86;
+  background-color: grey;
 }
 
 .session {
@@ -97,7 +95,7 @@ body {
   height: 200px;
   font-size: 32px;
   border-radius: 50%;
-  background-color: powderblue;
+  background-color: darkgray;
 }
 
 .settings {

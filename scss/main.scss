@@ -11,7 +11,7 @@ body {
   width: 100vw;
   height: 100vh;
 
-  background-color: powderblue;
+  background-color: darkgray;
 }
 .main {
   @include center;
@@ -20,10 +20,9 @@ body {
   width: 275px;
   height: 500px;
 
-  border: 2px solid grey;
-  box-shadow: 10px 10px 5px #aaaaaa;
+  border: 2px solid #000;
   border-radius: 12px;
-  background-color: rgb(48, 124, 134);
+  background-color: grey;
 }
 .session {
   display: flex;
@@ -66,7 +65,7 @@ body {
 
   font-size: 32px;
   border-radius: 50%;
-  background-color: powderblue;
+  background-color: darkgray;
 }
 .settings {
   display: flex;
